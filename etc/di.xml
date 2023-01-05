@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\GraphQl\Query\Resolver\Argument\FieldEntityAttributesPool">
+        <arguments>
+            <argument name="attributesInstances" xsi:type="array">
+                <item name="di_build_risecommerce_blog_post" xsi:type="object">Risecommerce\BlogGraphQl\Model\Posts\FilterArgument</item>
+                <item name="risecommerce_blog_comments" xsi:type="object">Risecommerce\BlogGraphQl\Model\Comments\FilterArgument</item>
+                <item name="risecommerce_blog_tags" xsi:type="object">Risecommerce\BlogGraphQl\Model\Tags\FilterArgument</item>
+                <item name="risecommerce_blog_categories" xsi:type="object">Risecommerce\BlogGraphQl\Model\Categories\FilterArgument</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\UrlRewriteGraphQl\Model\Resolver\EntityUrl">
+        <plugin
+                name="Risecommerce_BlogGraphQl_Plugin_Magento_UrlRewriteGraphQl_Model_Resolver_EntityUrl"
+                type="Risecommerce\BlogGraphQl\Plugin\Magento\UrlRewriteGraphQl\Model\Resolver\EntityUrl"
+                sortOrder="10"
+                disabled="false"
+        />
+    </type>
+    <type name="Magento\UrlRewriteGraphQl\Model\Resolver\Route">
+        <plugin
+                name="Risecommerce_BlogGraphQl_Plugin_Magento_UrlRewriteGraphQl_Model_Resolver_EntityUrl"
+                type="Risecommerce\BlogGraphQl\Plugin\Magento\UrlRewriteGraphQl\Model\Resolver\EntityUrl"
+                sortOrder="10"
+                disabled="false"
+        />
+    </type>
+</config>
